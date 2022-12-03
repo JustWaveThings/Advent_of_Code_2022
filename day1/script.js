@@ -55,31 +55,17 @@ const addLastIndexToElfIndicies = elfSpaceIndices.push(
 /*  console.log(elfSpaceIndices); /* [ 0, 3, 5, 8, 12, 13 ] */
 
 let newElfArray = [];
-let discreteElf = 1;
+let discreteElf = 0;
 for (let i = 1; i < allCaloriesAllElves.length; i++) {
 	const element = allCaloriesAllElves[i];
-	if (element !== 0) {
-		newElfArray.push([discreteElf, element]);
-	} else {
+	if (element === 0) {
 		discreteElf++;
+	} else {
+		pushWeightToElf();
+		[newElfArray[discreteElf]].push(element);
 	}
 }
 
 console.table(newElfArray);
-/*
-┌─────────┬───┬───────┐
-│ (index) │ 0 │   1   │
-├─────────┼───┼───────┤
-│    0    │ 1 │ 2000  │
-│    1    │ 1 │ 3000  │
-│    2    │ 2 │ 4000  │
-│    3    │ 3 │ 5000  │
-│    4    │ 3 │ 6000  │
-│    5    │ 4 │ 7000  │
-│    6    │ 4 │ 8000  │
-│    7    │ 4 │ 9000  │
-│    8    │ 5 │ 10000 │
-└─────────┴───┴───────┘ 
-so we are close, but not what I wanted, but I'll work with it. 
 
-*/
+function pushWeightToElf() {}
