@@ -32,25 +32,28 @@ const allCaloriesAllElves = [
 
 /* console.log(allCaloriesAllElves); */
 
-function separateElfs() {
-	const newElf1 = [];
-	currentElf = newElf1;
-	console.log(Array.isArray(currentElf));
+/* output [
+	1000, 2000, 3000, 0, 4000, 0, 5000, 6000, 0, 7000, 8000, 9000, 0,
+	10000,
+]; */
 
-	allCaloriesAllElves.forEach((element) => {
-		element !== 0
-			? /* addToCurrentElf(element) */ console.log('add')
-			: /* makeNewElf() */ console.log('new elf');
-	});
-}
-/* function addToCurrentElf() {
-	currentElf.push(); 
-}*/
-let elfCounter = 1;
-function makeNewElf(count = elfCounter) {
-	elfCounter++;
-	let newElf = `newElf${count}`;
-	return (currentElf = newElf);
+/* console.log(allCaloriesAllElves.indexOf(0)); */
+
+const elfSpaceIndices = [];
+const elfSpacer = 0;
+let index = allCaloriesAllElves.indexOf(elfSpacer);
+while (index !== -1) {
+	elfSpaceIndices.push(index);
+	index = allCaloriesAllElves.indexOf(elfSpacer, index + 1);
 }
 
-separateElfs();
+/* console.log(elfSpaceIndices); */
+const appendZeroToElfIndicies = elfSpaceIndices.unshift(0);
+const addLastIndexToElfIndicies = elfSpaceIndices.push(
+	allCaloriesAllElves.length - 1
+);
+console.log(elfSpaceIndices); /* [ 0, 3, 5, 8, 12, 13 ] */
+
+while (i > elfSpaceIndices.length) {
+	allCaloriesAllElves[elfSpaceIndices[0]];
+}
