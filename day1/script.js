@@ -52,8 +52,34 @@ const appendZeroToElfIndicies = elfSpaceIndices.unshift(0);
 const addLastIndexToElfIndicies = elfSpaceIndices.push(
 	allCaloriesAllElves.length - 1
 );
-console.log(elfSpaceIndices); /* [ 0, 3, 5, 8, 12, 13 ] */
+/*  console.log(elfSpaceIndices); /* [ 0, 3, 5, 8, 12, 13 ] */
 
-while (i > elfSpaceIndices.length) {
-	allCaloriesAllElves[elfSpaceIndices[0]];
+let newElfArray = [];
+let discreteElf = 1;
+for (let i = 1; i < allCaloriesAllElves.length; i++) {
+	const element = allCaloriesAllElves[i];
+	if (element !== 0) {
+		newElfArray.push([discreteElf, element]);
+	} else {
+		discreteElf++;
+	}
 }
+
+console.table(newElfArray);
+/*
+┌─────────┬───┬───────┐
+│ (index) │ 0 │   1   │
+├─────────┼───┼───────┤
+│    0    │ 1 │ 2000  │
+│    1    │ 1 │ 3000  │
+│    2    │ 2 │ 4000  │
+│    3    │ 3 │ 5000  │
+│    4    │ 3 │ 6000  │
+│    5    │ 4 │ 7000  │
+│    6    │ 4 │ 8000  │
+│    7    │ 4 │ 9000  │
+│    8    │ 5 │ 10000 │
+└─────────┴───┴───────┘ 
+so we are close, but not what I wanted, but I'll work with it. 
+
+*/
