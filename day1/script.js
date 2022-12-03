@@ -8,7 +8,9 @@ first issue - need to get the data into an array, so we can manipulate it. - don
 
 second issue - need to change new line characters into something we can manipluate - done
 
-third issue - need to separate each elf's calories into their own arrays
+third issue - need to separate each elf's calories into their own arrays - done
+
+reduce each array then find max --- for example it's 24000
 */
 
 let nextElf = 0;
@@ -54,18 +56,32 @@ const addLastIndexToElfIndicies = elfSpaceIndices.push(
 );
 /*  console.log(elfSpaceIndices); /* [ 0, 3, 5, 8, 12, 13 ] */
 
-let newElfArray = [];
-let discreteElf = 0;
-for (let i = 1; i < allCaloriesAllElves.length; i++) {
-	const element = allCaloriesAllElves[i];
-	if (element === 0) {
-		discreteElf++;
-	} else {
-		pushWeightToElf();
-		[newElfArray[discreteElf]].push(element);
-	}
+const newElfArray = [];
+
+while (elfSpaceIndices.length > 0) {
+	newElfArray.push(
+		allCaloriesAllElves.slice(elfSpaceIndices[0], elfSpaceIndices[1])
+	);
+	elfSpaceIndices.splice(0, 1);
 }
 
-console.table(newElfArray);
+/* console.log(newElfArray); */
 
-function pushWeightToElf() {}
+const elfTotals = [];
+
+for (let i = 0; i < newElfArray.length; i++) {
+	const element = newElfArray[i];
+	elfTotals.push(
+		element.reduce(
+			(accumulator, currentValue) => accumulator + currentValue
+		)
+	);
+}
+
+/* console.log(elfTotals);
+ */
+function myArrayMax(arr = elfTotals) {
+	return Math.max.apply(null, arr);
+}
+
+console.log(`${myArrayMax()} is the highest number`);
