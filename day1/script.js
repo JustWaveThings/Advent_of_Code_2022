@@ -20,9 +20,14 @@ const input = readFile('day1/problem_data_even_smaller.txt').split(
 	'\n'
 );
 
-const allCaloriesAllElves = input;
+console.log(input);
 
-/* console.log(allCaloriesAllElves); */
+inputToNumbers = input.forEach((element) => {
+	return Number(element);
+});
+
+const allCaloriesAllElves = inputToNumbers;
+console.log(allCaloriesAllElves);
 
 /* output [
 	1000, 2000, 3000, 0, 4000, 0, 5000, 6000, 0, 7000, 8000, 9000, 0,
@@ -30,8 +35,8 @@ const allCaloriesAllElves = input;
 ]; */
 
 const elfSpaceIndices = [];
-
-const elfSpacer = '';
+/* /* 
+const elfSpacer = NaN;
 let index = allCaloriesAllElves.indexOf(elfSpacer);
 while (index !== -1) {
 	elfSpaceIndices.push(index);
@@ -53,23 +58,24 @@ while (elfSpaceIndices.length > 0) {
 	elfSpaceIndices.splice(0, 1);
 }
 
-/* console.log(newElfArray); */
+ console.log(newElfArray); 
 
 const elfTotals = [];
-
+const initialValue = 0;
 for (let i = 0; i < newElfArray.length; i++) {
 	const element = newElfArray[i];
 	elfTotals.push(
 		element.reduce(
-			(accumulator, currentValue) => accumulator + currentValue
+			(accumulator, currentValue) => accumulator + currentValue,
+			initialValue
 		)
 	);
 }
 
-/* console.log(elfTotals);
- */
+console.log(elfTotals);
+
 function myArrayMax(arr = elfTotals) {
 	return Math.max.apply(null, arr);
 }
 
-console.log(`${myArrayMax()} is the highest number`);
+console.log(`${myArrayMax()} is the highest number`); */
