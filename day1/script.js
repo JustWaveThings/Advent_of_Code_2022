@@ -8,29 +8,19 @@ first issue - need to get the data into an array, so we can manipulate it. - don
 
 second issue - need to change new line characters into something we can manipluate - done
 
-third issue - need to separate each elf's calories into their own arrays - done
-
-reduce each array then find max --- for example it's 24000
+third issue - need to separate each elf's calories into their own arrays -
 */
 
-let nextElf = 0;
+const fs = require('fs');
+const readFile = (path) =>
+	fs.readFileSync(path, { encoding: 'utf8' });
 
-const allCaloriesAllElves = [
-	1000,
-	2000,
-	3000,
-	nextElf,
-	4000,
-	nextElf,
-	5000,
-	6000,
-	nextElf,
-	7000,
-	8000,
-	9000,
-	nextElf,
-	10000,
-];
+// the puzzle input as an array
+const input = readFile('day1/problem_data_even_smaller.txt').split(
+	'\n'
+);
+
+const allCaloriesAllElves = input;
 
 /* console.log(allCaloriesAllElves); */
 
@@ -39,22 +29,20 @@ const allCaloriesAllElves = [
 	10000,
 ]; */
 
-/* console.log(allCaloriesAllElves.indexOf(0)); */
-
 const elfSpaceIndices = [];
-const elfSpacer = 0;
+
+const elfSpacer = '';
 let index = allCaloriesAllElves.indexOf(elfSpacer);
 while (index !== -1) {
 	elfSpaceIndices.push(index);
 	index = allCaloriesAllElves.indexOf(elfSpacer, index + 1);
 }
 
-/* console.log(elfSpaceIndices); */
 const appendZeroToElfIndicies = elfSpaceIndices.unshift(0);
 const addLastIndexToElfIndicies = elfSpaceIndices.push(
 	allCaloriesAllElves.length - 1
 );
-/*  console.log(elfSpaceIndices); /* [ 0, 3, 5, 8, 12, 13 ] */
+console.log(elfSpaceIndices);
 
 const newElfArray = [];
 
