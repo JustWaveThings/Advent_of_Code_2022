@@ -126,3 +126,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 day1/tempCodeRunnerFile.js
+test.js
+.vscode/settings.json
