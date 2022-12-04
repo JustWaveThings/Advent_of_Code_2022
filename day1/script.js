@@ -12,8 +12,7 @@ third issue - need to separate each elf's calories into their own arrays - done
 
 reduce each array then find max --- for example it's 24000
 */
-
-let nextElf = 0;
+let nextElf;
 
 const allCaloriesAllElves = [
 	1000,
